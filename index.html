@@ -1,0 +1,224 @@
+
+﻿<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    var theUrl = "https://rlpr7wbzwj.execute-api.us-east-1.amazonaws.com/prod/RecipeUpdate";
+     // var form1 = document.createElement('form');
+     //            form1.method = "GET";
+     //            form1.action = "./search.html";
+     //              document.body.appendChild(form1);
+
+    var getallData = function(){
+        $.get(theUrl, function(data, status){
+            // alert(JSON.stringify(data))
+            // var data = JSON.stringify(data);
+            // return data;
+            // var res = JSON.parse(data);
+            var datas= (data["Items"]);
+            // alert(datas.length);
+            // alert(datas.length);
+            // var table = document.getElementByID('tb');
+            // var tr = [];
+
+            var table = document.createElement('table');
+            table.className = 'table';
+            var tr = document.createElement('tr');
+            var td4 = document.createElement('th');
+            var td5 = document.createElement('th');
+            var td6 = document.createElement('th');
+            var td7 = document.createElement('th');
+            var name = "Recipe Name";
+            var steps = "Directions";
+            var ingres= "Ingredients";
+            var pic= "Picture";
+            var text1 = document.createTextNode(name);
+                var text2 = document.createTextNode(steps);
+                var text3 = document.createTextNode(ingres);
+                var text4 = document.createTextNode(pic);
+
+            td4.appendChild(text1);
+            td5.appendChild(text2);
+            td6.appendChild(text3);
+            td7.appendChild(text4);
+            tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                tr.appendChild(td7);
+
+                table.appendChild(tr);
+
+            for (var i = 1; i < datas.length; i++){
+                var name = datas[i]["RecipeName"];
+                var steps = datas[i]["Directions"];
+                var ingres = datas[i]["Ingredients"];
+
+               var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var link = "./search.html?RecipeName="+name;
+                var link2 = "./ingre.html?RecipeName="+name;
+                var a = document.createElement('a');
+                var a2 = document.createElement('a');
+                a.setAttribute('href',link);
+                a2.setAttribute('href',link2);
+                //icon for ingredients 
+                 var image = document.createElement('img');
+                 image .setAttribute('src','./icon2.png');
+                 image.setAttribute('width','50px');
+                 //icon for list
+                 var image2 = document.createElement('img');
+                 image2.setAttribute('src','./icon1.png');
+                 image2.setAttribute('width','50px');
+                 //img for the recipes
+                var image3 = document.createElement('img');
+                 image3.setAttribute('src','./test.png');
+                 image3.setAttribute('width','100px');
+                 a.appendChild(image);
+                a2.appendChild(image2);
+               
+               
+                var text1 = document.createTextNode(name);
+                var text2 = document.createTextNode(steps);
+
+                var text3 = document.createTextNode(ingres);
+                td1.appendChild(text1);
+                td2.appendChild(a);
+                td3.appendChild(a2);
+                td4.appendChild(image3);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+           
+        });
+    };
+
+   getallData();
+
+
+ 
+});
+</script>
+<html>
+<style>
+    table {
+        font-size: 42px;
+        color: #505050;
+        border: 3px solid #aaaaaa;
+    }
+    tr {
+        font-size: 24px;
+        color: #505050;
+        border: 3px solid #aaaaaa;
+    }
+
+    .button {
+    background-color: #3C763D;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    }
+</style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Recipe Assistant</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- Font-Awesome Icons Styles -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- Pretty Photo For PopUp Styles -->
+    <link href="assets/css/prettyPhoto.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/custom.css" rel="stylesheet" />    
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body  >
+
+     <section id="home-sec"  class="player">
+           <div class="overlay"  >
+               <div class="container" >
+                <div class="row text-center">
+                    <div class="col-md-12">
+                      <h1 >Recipe <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>  Assistant </h1> 
+
+                    </div>
+                </div>
+                </div>
+           </div>
+            
+         </section>
+    <!-- HOME SECTION END-->
+       <section id="services-sec"  >
+
+           
+            <div class="container basic-set" >
+
+           <div class="row" >
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                <div class="txt-block">
+
+              
+                <i class="fa fa-plus-square fa-4x"></i>
+									<h3><a href = "upload.html">Add a Receipe</a></h3>
+
+                      </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                <div class="txt-block">
+
+              
+                <i class="fa fa-search fa-4x" aria-hidden="true"></i>
+
+									<h3><a href = "search.html">Search Receipes</a></h3>
+
+                      </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                <div class="txt-block">
+
+              
+                <i class="fa fa-wrench fa-4x"></i>
+									<h3><a href = "#">Settings</a></h3>
+
+                      </div>
+            </div>
+        </div>
+           </div>
+           </section>
+
+
+    
+     <table id ="tb"></table>
+     <!-- <img src="./test.png" href="./search.html" width = '20px'> -->
+     <!-- <form method="GET" action ="./search.html">search</form> -->
+
+     <!-- <button href = "./search.html?RecipeName=">a</button> -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+    
+    
+</body>
+</html>
+

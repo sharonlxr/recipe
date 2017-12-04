@@ -1,0 +1,51 @@
+﻿/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom:72px;
+   
+}
+.basic-set {
+    padding-top:50px;
+    padding-bottom:80px;
+    font-size:18px;
+}
+
+
+/* =============================================================
+   MAIN HOME SECTION STYLES
+ ============================================================ */
+#home-sec {
+    height:400px;
+    color:#fff;
+    text-align:center;
+    border-bottom:4px solid #000;
+    background: url('../img/35.jpg');
+}
+    #home-sec .overlay {
+        background-color:rgba(0, 0, 0, 0.8);
+        min-height:400px;
+    }
+    #home-sec h1 {
+        padding-top:80px;
+        font-size:50px;
+        font-weight:900;
+        padding-bottom:30px;
+    }
+        #home-sec h1 i {
+            color:#3c763d;
+        }
+/* =============================================================
+   THREE SECTION STYLES
+ ============================================================ */
+.txt-block {
+    padding-bottom:30px;
+}
+
+.col-lg-4 i {
+    display:block;
+    text-align:center
+}
+
+
